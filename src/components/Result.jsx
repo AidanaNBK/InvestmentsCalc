@@ -1,4 +1,5 @@
 export default function Result(props) {
+  console.log(props.data);
   return (
     <>
       <table id="result">
