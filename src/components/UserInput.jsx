@@ -12,7 +12,7 @@ export default function UserInput(props) {
         </InputElement>
         <InputElement
           change={props.change}
-          name="annualInvestement"
+          name="annualInvestment"
           data={props.data}
         >
           Annual Investment
@@ -21,7 +21,7 @@ export default function UserInput(props) {
       <div className="input-group">
         <InputElement
           change={props.change}
-          name="expecteReturn"
+          name="expectedReturn"
           data={props.data}
         >
           Expected Return

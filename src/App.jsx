@@ -4,17 +4,18 @@ import Result from "./components/Result.jsx";
 import { useState } from "react";
 
 function App() {
-  let [userData, setUserData] = useState({
-    initialInvestment: 10000,
-    annualInvestement: 1200,
-    expecteReturn: 6,
+  const [userData, setUserData] = useState({
+    initialInvestment: 15000,
+    annualInvestment: 1200,
+    expectedReturn: 6,
     duration: 10,
   });
+  const validUserInput = userData.duration >= 1;
   function userDataHandler(inputIdentifier, newValue) {
     setUserData((oldData) => {
       return {
         ...oldData,
-        [inputIdentifier]: newValue,
+        [inputIdentifier]: +newValue,
       };
     });
   }
@@ -22,7 +23,11 @@ function App() {
     <main>
       <Header>Investment Calculator</Header>
       <UserInput change={userDataHandler} data={userData} />
-      <Result data={userData} />
+      {validUserInput ? (
+        <Result data={userData} />
+      ) : (
+        <p className="center">Please enter correct positive duration</p>
+      )}
     </main>
   );
 }
